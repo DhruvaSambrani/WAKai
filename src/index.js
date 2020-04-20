@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Menu, MenuItem } = require('electron');
+const { app, BrowserWindow, Menu, MenuItem, session } = require('electron');
 const path = require('path');
 
 const menu = new Menu()
@@ -54,6 +54,14 @@ menu.append(new MenuItem({
     }
 }));
 menu.append(new MenuItem({
+    label: 'Clear Cache',
+    accelerator: 'CmdOrCtrl+Shift+C',
+    click: () => {
+        mainWindow.webContents.session.clearCache();
+        mainWindow.webContents.session.clearStorageData();
+    }
+}));
+menu.append(new MenuItem({
     label: 'DevTools',
     accelerator: 'CmdOrCtrl+Shift+I',
     click: () => {
@@ -77,6 +85,10 @@ const createWindow = () => {
     });
     Menu.setApplicationMenu(menu);
     mainWindow.loadFile(path.join(__dirname, 'index.html'));
+    session.defaultSession.webRequest.onBeforeSendHeaders((details, callback) => {
+      details.requestHeaders['User-Agent'] = 'Mozilla/5.0 (Windows NT 10.0; ) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4086.0 Safari/537.36';
+      callback({ cancel: false, requestHeaders: details.requestHeaders });
+    });
 };
 
 app.on('ready', createWindow);

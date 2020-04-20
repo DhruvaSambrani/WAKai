@@ -8,7 +8,7 @@
   "scripts": {
     "pack": "electron-builder --dir",
     "dist": "electron-builder",
-    "start": "electron-builder start"
+    "start": "electron-forge start"
   },
   "build": {
     "appId": "com.dhruva.wakai",
