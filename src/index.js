@@ -76,18 +76,18 @@ const createWindow = () => {
     mainWindow = new BrowserWindow({
         width: 800,
         height: 600,
-        fullscreen:true,
+        fullscreen: true,
         frame: false,
         webPreferences: {
-            webviewTag:true,
-            nodeIntegration:true
+            webviewTag: true,
+            nodeIntegration: true
         },
     });
     Menu.setApplicationMenu(menu);
     mainWindow.loadFile(path.join(__dirname, 'index.html'));
     session.defaultSession.webRequest.onBeforeSendHeaders((details, callback) => {
-      details.requestHeaders['User-Agent'] = 'Mozilla/5.0 (Windows NT 10.0; ) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4086.0 Safari/537.36';
-      callback({ cancel: false, requestHeaders: details.requestHeaders });
+        details.requestHeaders['User-Agent'] = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36';
+        callback({ cancel: false, requestHeaders: details.requestHeaders });
     });
 };
 

@@ -1,14 +1,14 @@
 {
-  "name": "WAKai!",
+  "name": "wakai",
   "productName": "WAKai!",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Open Wa, Kz, GM, IM",
   "main": "src/index.js",
   "homepage": "www.google.com",
   "scripts": {
     "pack": "electron-builder --dir",
     "dist": "electron-builder",
-    "start": "electron-forge start"
+    "start": "electron ."
   },
   "build": {
     "appId": "com.dhruva.wakai",
@@ -25,9 +25,10 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "electron": "8.2.0"
+    "electron": "latest",
+    "electron-builder": "^22.7.0"
   },
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.0"
+    "electron-squirrel-startup": "latest"
   }
 }
