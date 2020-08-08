@@ -12,6 +12,7 @@
     <div class="tab">
       <button id="wa" class="tablinks" onclick="openApp(event, 'whatsapp')">Whatsapp</button>
       <button id="ka" class="tablinks" onclick="openApp(event, 'kaizala')">Kaizala</button>
+      <button id="dc" class="tablinks" onclick="openApp(event, 'discord')">Discord</button>
       <button id="gm" class="tablinks" onclick="openApp(event, 'gmail')">G-Mail</button>
       <button id="im" class="tablinks" onclick="openApp(event, 'imail')">I-Mail</button>
     </div>
@@ -27,7 +28,10 @@
         src="https://accounts.google.com/ServiceLogin/signinchooser?service=mail&passive=true&rm=false&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&ss=1&scc=1&ltmpl=default&ltmplcache=2&emr=1&osid=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin"
         useragent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36">
       </webview>
-      <webview id="imail_web" class="tabcontent" src="https://210.212.36.70/rainloop/#/mailbox/INBOX"
+      <iframe id="imail_web" class="tabcontent" frameborder="0" src="https://210.212.36.70/rainloop/#/mailbox/INBOX"
+        useragent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36">
+      </iframe>
+      <webview id="discord_web" class="tabcontent" src="https://discord.com/channels/@me"
         useragent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36">
       </webview>
     </div>

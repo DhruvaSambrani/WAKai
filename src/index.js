@@ -33,6 +33,13 @@ menu.append(new MenuItem({
     }
 }));
 menu.append(new MenuItem({
+    label: 'Discord',
+    accelerator: 'CmdOrCtrl+Alt+D',
+    click: () => {
+        mainWindow.webContents.executeJavaScript("document.getElementById('dc').click();")
+    }
+}));
+menu.append(new MenuItem({
     label: 'Reload',
     accelerator: 'CmdOrCtrl+R',
     click: () => {

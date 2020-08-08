@@ -49,6 +49,7 @@
 .tabcontent {
     display: none;
     flex-grow: 1;
+    min-width: 630px;
 }
 
 #hr {

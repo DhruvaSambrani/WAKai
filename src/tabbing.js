@@ -1,9 +1,10 @@
-const {shell} = require('electron');
+const { shell } = require('electron');
 
 wa_web = document.getElementById('whatsapp_web');
 ka_web = document.getElementById('kaizala_web');
 gm_web = document.getElementById('gmail_web');
 im_web = document.getElementById('imail_web');
+dc_web = document.getElementById('discord_web');
 
 function openApp(evt, appName) {
     var i, tabcontent, tablinks;
@@ -15,25 +16,28 @@ function openApp(evt, appName) {
     for (i = 0; i < tablinks.length; i++) {
         tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
-    document.getElementById(appName+"_web").style.display = "inherit";
+    document.getElementById(appName + "_web").style.display = "inherit";
     evt.currentTarget.className += " active";
-    if (appName=="whatsapp") {
+    if (appName == "whatsapp") {
         document.documentElement.style.setProperty('--tab-color', '#128C7E');
     }
-    if (appName=="kaizala") {
+    if (appName == "kaizala") {
         document.documentElement.style.setProperty('--tab-color', '#004f8c');
     }
-    if (appName=="gmail") {
+    if (appName == "gmail") {
         document.documentElement.style.setProperty('--tab-color', '#B23121');
     }
-    if (appName=="imail") {
+    if (appName == "imail") {
         document.documentElement.style.setProperty('--tab-color', '#47515b');
+    }
+    if (appName == "discord") {
+        document.documentElement.style.setProperty('--tab-color', '#7289da');
     }
 }
 
 wa_web.addEventListener('dom-ready', () => {
     wa_web.addEventListener('console-message', (e) => {
-        console.log('Guest page logged a message:', e.message)
+        console.log('whatsapp page logged a message:', e.message)
     });
     wa_web.addEventListener('new-window', (e) => {
         shell.openExternal(e.url);
@@ -43,13 +47,13 @@ ka_web.addEventListener('dom-ready', () => {
     ka_web.addEventListener('new-window', (e) => {
         shell.openExternal(e.url);
     });
-    wa_web.addEventListener('console-message', (e) => {
-        console.log('Guest page logged a message:', e.message)
+    ka_web.addEventListener('console-message', (e) => {
+        console.log('kaizala page logged a message:', e.message)
     });
 });
 gm_web.addEventListener('dom-ready', () => {
     gm_web.addEventListener('console-message', (e) => {
-        console.log('Guest page logged a message:', e.message)
+        console.log('gmail page logged a message:', e.message)
     });
     gm_web.addEventListener('new-window', (e) => {
         shell.openExternal(e.url);
@@ -57,11 +61,18 @@ gm_web.addEventListener('dom-ready', () => {
 });
 im_web.addEventListener('dom-ready', () => {
     im_web.addEventListener('console-message', (e) => {
-        console.log('Guest page logged a message:', e.message)
+        console.log('iisermail page logged a message:', e.message)
     });
     im_web.addEventListener('new-window', (e) => {
         shell.openExternal(e.url);
     });
 });
-
+dc_web.addEventListener('dom-ready', () => {
+    im_web.addEventListener('console-message', (e) => {
+        console.log('discord page logged a message:', e.message)
+    });
+    im_web.addEventListener('new-window', (e) => {
+        shell.openExternal(e.url);
+    });
+});
 document.getElementById('wa').click();
