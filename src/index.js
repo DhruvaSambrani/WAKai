@@ -1,5 +1,6 @@
 const { app, BrowserWindow, Menu, MenuItem, session } = require('electron');
 const path = require('path');
+const { url } = require('inspector');
 
 const menu = new Menu()
 
@@ -47,7 +48,7 @@ menu.append(new MenuItem({
     }
 }));
 menu.append(new MenuItem({
-    label: 'Minimise',
+    label: 'Minimize',
     accelerator: 'Alt+F4',
     click: () => {
         mainWindow.minimize();

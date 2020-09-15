@@ -61,18 +61,18 @@ gm_web.addEventListener('dom-ready', () => {
 });
 im_web.addEventListener('dom-ready', () => {
     im_web.addEventListener('console-message', (e) => {
-        console.log('iisermail page logged a message:', e.message)
+        console.log('imail page logged a message:', e.message)
     });
     im_web.addEventListener('new-window', (e) => {
         shell.openExternal(e.url);
     });
 });
 dc_web.addEventListener('dom-ready', () => {
-    im_web.addEventListener('console-message', (e) => {
+    dc_web.addEventListener('console-message', (e) => {
         console.log('discord page logged a message:', e.message)
     });
-    im_web.addEventListener('new-window', (e) => {
+    dc_web.addEventListener('new-window', (e) => {
         shell.openExternal(e.url);
     });
 });
-document.getElementById('wa').click();
+document.getElementById('dc').click();
