@@ -16,7 +16,10 @@
       "target": "nsis"
     },
     "linux": {
-      "target": "apk"
+      "target": [
+        "deb",
+        "AppImage"
+      ]
     }
   },
   "author": {
