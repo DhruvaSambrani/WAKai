@@ -64,6 +64,7 @@ im_web.addEventListener('dom-ready', () => {
         console.log('imail page logged a message:', e.message)
     });
     im_web.addEventListener('new-window', (e) => {
+        console.log('imail new window:' + e.url);
         shell.openExternal(e.url);
     });
 });

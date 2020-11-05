@@ -1,7 +1,7 @@
 {
   "name": "wakai",
   "productName": "WAKai!",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Open Wa, Kz, GM, IM",
   "main": "src/index.js",
   "homepage": "www.google.com",
@@ -29,7 +29,7 @@
   "license": "MIT",
   "devDependencies": {
     "electron": "latest",
-    "electron-builder": "^22.8.0"
+    "electron-builder": "latest"
   },
   "dependencies": {
     "electron-squirrel-startup": "latest"
