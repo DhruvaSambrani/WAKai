@@ -40,6 +40,7 @@ wa_web.addEventListener('dom-ready', () => {
         console.log('whatsapp page logged a message:', e.message)
     });
     wa_web.addEventListener('new-window', (e) => {
+        e.preventDefault();
         shell.openExternal(e.url);
     });
 });
@@ -48,6 +49,7 @@ ka_web.addEventListener('dom-ready', () => {
         shell.openExternal(e.url);
     });
     ka_web.addEventListener('console-message', (e) => {
+        e.preventDefault();
         console.log('kaizala page logged a message:', e.message)
     });
 });
@@ -56,6 +58,7 @@ gm_web.addEventListener('dom-ready', () => {
         console.log('gmail page logged a message:', e.message)
     });
     gm_web.addEventListener('new-window', (e) => {
+        e.preventDefault();
         shell.openExternal(e.url);
     });
 });
@@ -65,7 +68,12 @@ im_web.addEventListener('dom-ready', () => {
     });
     im_web.addEventListener('new-window', (e) => {
         console.log('imail new window:' + e.url);
-        shell.openExternal(e.url);
+        if (e.url.match("https://mail.google.com/mail/")) {
+            im_web.src = e.url
+        } else {
+            e.preventDefault();
+            shell.openExternal(e.url);
+        }
     });
 });
 dc_web.addEventListener('dom-ready', () => {
@@ -73,6 +81,7 @@ dc_web.addEventListener('dom-ready', () => {
         console.log('discord page logged a message:', e.message)
     });
     dc_web.addEventListener('new-window', (e) => {
+        e.preventDefault();
         shell.openExternal(e.url);
     });
 });
