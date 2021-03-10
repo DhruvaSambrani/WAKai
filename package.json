@@ -1,8 +1,8 @@
 {
   "name": "wakai",
   "productName": "WAKai!",
-  "version": "1.2.1",
-  "description": "Open Wa, Kz, GM, IM",
+  "version": "1.2.2",
+  "description": "Open WA, DC, GM, IM",
   "main": "src/index.js",
   "homepage": "www.google.com",
   "scripts": {

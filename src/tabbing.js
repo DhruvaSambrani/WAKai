@@ -1,7 +1,6 @@
 const { shell } = require('electron');
 
 wa_web = document.getElementById('whatsapp_web');
-ka_web = document.getElementById('kaizala_web');
 gm_web = document.getElementById('gmail_web');
 im_web = document.getElementById('imail_web');
 dc_web = document.getElementById('discord_web');
@@ -21,9 +20,6 @@ function openApp(evt, appName) {
     if (appName == "whatsapp") {
         document.documentElement.style.setProperty('--tab-color', '#128C7E');
     }
-    if (appName == "kaizala") {
-        document.documentElement.style.setProperty('--tab-color', '#004f8c');
-    }
     if (appName == "gmail") {
         document.documentElement.style.setProperty('--tab-color', '#B23121');
     }
@@ -42,15 +38,6 @@ wa_web.addEventListener('dom-ready', () => {
     wa_web.addEventListener('new-window', (e) => {
         e.preventDefault();
         shell.openExternal(e.url);
-    });
-});
-ka_web.addEventListener('dom-ready', () => {
-    ka_web.addEventListener('new-window', (e) => {
-        shell.openExternal(e.url);
-    });
-    ka_web.addEventListener('console-message', (e) => {
-        e.preventDefault();
-        console.log('kaizala page logged a message:', e.message)
     });
 });
 gm_web.addEventListener('dom-ready', () => {
